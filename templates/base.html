@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Information Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            const resultsDiv = document.getElementById('results');
+            const loadingDiv = document.getElementById('loading');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const query = document.querySelector('input[name="query"]').value;
+                
+                loadingDiv.style.display = 'block';
+                resultsDiv.innerHTML = '';
+
+                try {
+                    const response = await axios.get(`/search?q=${encodeURIComponent(query)}`);
+                    const data = response.data;
+                    
+                    if (data) {
+                        resultsDiv.innerHTML = `
+                            <h2>${data.name}</h2>
+                            <p>${data.shortDescription}</p>
+                            <h3>Symptoms:</h3>
+                            <ul>
+                                ${data.symptoms.map(symptom => `<li>${symptom}</li>`).join('')}
+                            </ul>
+                            <h3>Causes:</h3>
+                            <p>${data.causes}</p>
+                            <h3>Treatment:</h3>
+                            <p>${data.treatment}</p>
+                            <h3>Prevention:</h3>
+                            <p>${data.prevention}</p>
+                        `;
+                    } else {
+                        resultsDiv.innerHTML = '<p>No information found. Please try another search.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    resultsDiv.innerHTML = '<p>An error occurred. Please try again later.</p>';
+                } finally {
+                    loadingDiv.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
