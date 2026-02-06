@@ -16,28 +16,6 @@ This project focuses on building an AI-powered healthcare chatbot that provides 
 
 Access to timely and reliable healthcare information is a persistent challenge, as healthcare systems often face high patient volumes, limited availability of medical professionals, long waiting times, and increased costs, making it difficult for individuals to obtain quick answers to basic medical queries. Many users rely on unverified online sources for preliminary health information, which can result in misinformation, delayed medical attention, or unnecessary anxiety. Existing digital healthcare solutions frequently lack intelligent conversational capabilities, scalability, and user-centric design, reducing their effectiveness in real-world use. This creates a need for a secure, AI-driven solution that can provide instant, accurate, and accessible healthcare guidance, assist users with symptom-based queries, and act as a reliable first point of interaction without replacing professional medical consultation.
 
-**Tools & Technologies Used**
-
-AI & ML
-
-Natural Language Processing (NLP)
-
-Machine Learning Models
-
-Prompt Engineering
-
-**Backend**
-
-Python
-
-Flask / FastAPI
-
-**Frontend**
-
-HTML / CSS / JavaScript
-
-Chat UI Interface
-
 **Disclaimer**
 
 This chatbot is for educational and informational purposes only.
