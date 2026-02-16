@@ -43,3 +43,10 @@ pip install -r requirements.txt
 # Start the application
 python app.py
 
+```
+
+---
+
+## ⚠️ Medical Disclaimer
+
+This chatbot is not a substitute for professional medical advice, diagnosis, or treatment. It is intended for informational and educational purposes only. Users are advised to consult qualified healthcare professionals for medical concerns.
